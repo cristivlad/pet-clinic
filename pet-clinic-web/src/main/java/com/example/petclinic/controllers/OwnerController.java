@@ -76,9 +76,9 @@ public class OwnerController {
     }
 
 
-    // add @Valid to Owner
+    // add @Valid annotation for Owner
     @PostMapping("/new")
-    public String processCreationForm(Owner owner, BindingResult result) {
+    public String processCreationForm( Owner owner, BindingResult result) {
 
         if(result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
@@ -95,7 +95,7 @@ public class OwnerController {
     }
 
 
-    // add @Valid to Owner
+    // // add @Valid annotation for Owner
     @PostMapping("/{ownerId}/edit")
     public String processUpdateOwnerForm( Owner owner, BindingResult result, @PathVariable("ownerId") Long ownerId) {
 
