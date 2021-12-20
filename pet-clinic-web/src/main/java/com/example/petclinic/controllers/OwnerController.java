@@ -5,6 +5,7 @@ import com.example.petclinic.services.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -76,9 +77,8 @@ public class OwnerController {
     }
 
 
-    // add @Valid annotation for Owner
     @PostMapping("/new")
-    public String processCreationForm( Owner owner, BindingResult result) {
+    public String processCreationForm(@Validated Owner owner, BindingResult result) {
 
         if(result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
@@ -95,9 +95,8 @@ public class OwnerController {
     }
 
 
-    // // add @Valid annotation for Owner
     @PostMapping("/{ownerId}/edit")
-    public String processUpdateOwnerForm( Owner owner, BindingResult result, @PathVariable("ownerId") Long ownerId) {
+    public String processUpdateOwnerForm(@Validated Owner owner, BindingResult result, @PathVariable("ownerId") Long ownerId) {
 
         if(result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
