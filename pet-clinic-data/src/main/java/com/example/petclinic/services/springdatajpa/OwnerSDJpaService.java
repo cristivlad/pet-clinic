@@ -5,14 +5,11 @@ import com.example.petclinic.repositories.OwnerRepository;
 import com.example.petclinic.repositories.PetRepository;
 import com.example.petclinic.services.OwnerService;
 import com.example.petclinic.services.PetTypeService;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 @Service
@@ -65,6 +62,6 @@ public class OwnerSDJpaService implements OwnerService {
 
     @Override
     public List<Owner> findAllByLastNameLike(String lastName) {
-        return ownerRepository.findByLastNameLike(lastName.substring(1,2).toUpperCase(Locale.ROOT) + lastName.substring(2));
+        return ownerRepository.findByLastNameLike(lastName);
     }
 }
