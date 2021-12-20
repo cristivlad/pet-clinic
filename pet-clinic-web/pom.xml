@@ -79,12 +79,6 @@
             <optional>true</optional>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>io.openliberty.features</groupId>
-            <artifactId>beanValidation-2.0</artifactId>
-            <version>18.0.0.2</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
